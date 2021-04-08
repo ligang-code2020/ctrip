@@ -1,0 +1,96 @@
+body {
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei",
+    STXihei, hei;
+  color: #000;
+  background: #f2f2f2;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+div {
+  /*css3盒模型*/
+  box-sizing: border-box;
+}
+
+/* 搜索模块 */
+.search-index {
+  display: flex;
+  /* 固定定位必须要有宽度，且固定定位跟父级没有关系，它以屏幕为准 */
+  position: fixed;
+  width: 100%;
+  min-width: 320px;
+  max-width: 540px;
+  height: 44px;
+  background-color: #F6F6F6;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  /* 水平居中的一种写法 */ /*当使用position属性后，margin: 0 auto 就失效了*/
+  top: 0;
+  left: 50%;
+  /* 兼容 */
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.user {
+  height: 44px;
+  width: 44px;
+  /* background-color: black; */
+  font-size: 12px;
+  text-align: center;
+  color: #2eaae0;
+}
+.user::before {
+  /* 精灵图使用步骤
+  1.等比缩放一倍(长和宽缩放为原来的一半)
+  2.截取所要的图片大小(23px ✖ 23px),并且得到他的坐标
+  3.写代码
+  */
+  content: "";
+  display: block;
+  width: 23px;
+  height: 23px;
+  background: url(../assets/sprite.png) no-repeat -59px -194px; /*取坐标的负数*/
+  background-size: 104px auto; /* 宽度是精灵图横坐标的一半，高度可以不写，也可以写auto */
+  margin: 4px auto -2px; /*上 4px 左右auto 下 -2px */
+}
+.search {
+  position: relative;
+  flex: 1;
+  height: 26px;
+  border: 1px solid #ccc;
+  margin: 7px 10px;
+  border-radius: 5px;
+  color: #666;
+  font-size: 12px;
+  line-height: 24px; /*文字垂直居中*/
+  padding-left: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2); /*水平阴影 0px 垂直阴影 2px 模糊距离 4px*/
+}
+.search::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: url(../assets/sprite.png) no-repeat -59px -279px;
+  background-size: 104px auto;
+  position: absolute; /* 使用position属性，margin属性不再适用*/
+  top: 5px;
+  left: 5px;
+}
+
+/* .focus {
+  padding-top: 44px;
+} */
+.focus img{
+  width: 100%;
+  margin: 0 auto;
+  
+  
+ /* background-size: red ; */
+}
