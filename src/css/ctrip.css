@@ -1,7 +1,7 @@
 body {
   max-width: 540px;
   min-width: 320px;
-  margin: 0 auto;
+  margin: 0 auto !important;
   font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei",
     STXihei, hei;
   color: #000;
@@ -10,8 +10,14 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 a {
   text-decoration: none;
+  color: #222;
 }
 div {
   /*css3盒模型*/
@@ -27,7 +33,7 @@ div {
   min-width: 320px;
   max-width: 540px;
   height: 44px;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   /* 水平居中的一种写法 */ /*当使用position属性后，margin: 0 auto 就失效了*/
@@ -70,7 +76,7 @@ div {
   font-size: 12px;
   line-height: 24px; /*文字垂直居中*/
   padding-left: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .2); /*水平阴影 0px 垂直阴影 2px 模糊距离 4px*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /*水平阴影 0px 垂直阴影 2px 模糊距离 4px*/
 }
 .search::before {
   content: "";
@@ -84,13 +90,39 @@ div {
   left: 5px;
 }
 
-/* .focus {
+.focus {
   padding-top: 44px;
-} */
-.focus img{
+}
+.focus img {
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  /* margin: 0 auto; */
+}
+.red {
+  background-color: red;
+  height: 50px;
+}
+
+.local-nav {
+  height: 64px;
+  background-color: #fff;
+  margin: 3px 4px;
+  border-radius: 8px;
+  display: flex;
+}
+.local-nav li {
+  flex: 1;
+}
+.local-nav a{
+  display: flex;
+  flex-direction: column;  /*把主轴设置y轴*/
+  align-items: center; /*沿侧轴居中*/
   
-  
- /* background-size: red ; */
+}
+.local-nav-icon{
+  width: 32px;
+  height: 32px;
+  /* background-color:pink; */
+  border-radius: 50%;
+  margin-top: 8px;
 }
