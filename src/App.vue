@@ -21,11 +21,28 @@
     <ul class="local-nav">
       <li v-for="(item, index) in local_nav" :key="index">
         <a href="#" :title="item.name">
-          <span class="local-nav-icon" :style='`"${item.style}"`'></span>
+          <span
+            class="local-nav-icon"
+            :style="{
+              background: 'url(' + item.img + ')',
+              backgroundRepeat: 'no-repeat 0 0',
+              backgroundSize: '32px auto',
+              backgroundPosition: '0 ' + index * -32 + 'px',
+            }"
+          >
+          </span>
           <span>{{ item.name }}</span>
         </a>
       </li>
     </ul>
+    <nav>
+      <div class="nav-common" v-for="(item, index) in nav" :key="index">
+        <div class="nav-items" v-for="(item, index) in item.item" :key="index">{{item.name}}
+          <a href="#" v-for="(item, index) in item.center" :key="index" >{{item.text}}
+          </a>
+        </div>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -35,16 +52,17 @@ export default {
   components: {},
   data() {
     return {
+      img: require("../src/assets/localnav_bg.png"),
       img_list: [
         require("../src/upload/focus.jpg"),
         require("../src/upload/pic3.jpg"),
         require("../src/upload/focus.jpg"),
       ],
+      style: "",
       local_nav: [
         {
           name: "景点游玩",
           img: require("../src/assets/localnav_bg.png"),
-          style:"{background: 'url(' + ../src/assets/localnav_bg.png + ') no-repeat 0 0',backgroundSize:'32px auto'}"
         },
         {
           name: "周边游",
@@ -52,15 +70,73 @@ export default {
         },
         {
           name: "美食林",
+          img: require("../src/assets/localnav_bg.png"),
         },
         {
           name: "一日游",
+          img: require("../src/assets/localnav_bg.png"),
         },
         {
           name: "当地攻略",
+          img: require("../src/assets/localnav_bg.png"),
+        },
+      ],
+      nav: [
+        {
+          item: [
+            {
+               name:"12"
+            },
+            {
+              center: [
+                {
+                  text: "海外酒店"
+                },
+                {
+                  text: "特价酒店"
+                },
+              ],
+            },
+            {
+              center: [{text: "海外酒店"}, {text: "海外酒店"}],
+            },
+          ],
+        },
+        {
+          item: [
+            {
+              name:"1"
+            },
+            {
+              center: [{}, {}],
+            },
+            {
+              center: [{}, {}],
+            },
+          ],
+        },
+        {
+          item: [
+            {
+              name:"1"
+            },
+            {
+              center: [{}, {}],
+            },
+            {
+              center: [{}, {}],
+            },
+          ],
         },
       ],
     };
+  },
+  mounted() {
+    // this.style = {
+    //           background: 'url(' + this.img + ')',
+    //           backgroundRepeat: 'no-repeat 0 0',
+    //           backgroundSize: 32px+ auto',
+    //         }
   },
 };
 </script>
