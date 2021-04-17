@@ -37,12 +37,40 @@
     </ul>
     <nav>
       <div class="nav-common" v-for="(item, index) in nav" :key="index">
-        <div class="nav-items" v-for="(item, index) in item.item" :key="index">{{item.name}}
-          <a href="#" v-for="(item, index) in item.center" :key="index" >{{item.text}}
-          </a>
+        <div class="nav-items" v-for="(item, index) in item.item" :key="index">
+          <a
+            :title="item.text"
+            href="#"
+            v-for="(item, index) in item.center"
+            :key="index"
+            :style="{
+              background: 'url(' + item.img + ') center bottom',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '121px auto',
+            }"
+            >{{ item.text }}</a
+          >
         </div>
       </div>
     </nav>
+    <!-- 侧导航栏 -->
+    <ul class="subnav-entry">
+      <li v-for="(item, index) in subnav_entry" :key="index">
+        <a href="#">
+          <span
+            class="subnav-entry-icon"
+            :style="{
+              background: 'url(' + item.img + ')',
+              backgroundRepeat: 'no-repeat 0 0',
+              backgroundSize: '28px auto',
+            }"
+          ></span>
+          <span>{{ item.name }}</span>
+        </a>
+      </li>
+    </ul>
+    <!-- 销售模块 -->
+    <div class="sales-box">111</div>
   </div>
 </template>
 
@@ -85,59 +113,108 @@ export default {
         {
           item: [
             {
-               name:"12"
-            },
-            {
               center: [
                 {
-                  text: "海外酒店"
-                },
-                {
-                  text: "特价酒店"
+                  text: "海外酒店",
+                  img: require("../src/assets/hotel.png"),
                 },
               ],
             },
             {
-              center: [{text: "海外酒店"}, {text: "海外酒店"}],
+              center: [
+                {
+                  text: "海外酒店",
+                },
+                {
+                  text: "特价酒店",
+                },
+              ],
+            },
+            {
+              center: [{ text: "海外酒店" }, { text: "海外酒店" }],
             },
           ],
         },
         {
           item: [
             {
-              name:"1"
+              center: [
+                {
+                  text: "海外酒店",
+                  img: require("../src/assets/hotel.png"),
+                },
+              ],
             },
             {
-              center: [{}, {}],
+              center: [
+                {
+                  text: "海外酒店",
+                },
+                {
+                  text: "特价酒店",
+                },
+              ],
             },
             {
-              center: [{}, {}],
+              center: [
+                {
+                  text: "海外酒店",
+                },
+                {
+                  text: "特价酒店",
+                },
+              ],
             },
           ],
         },
         {
           item: [
             {
-              name:"1"
+              center: [
+                {
+                  text: "海外酒店",
+                  img: require("../src/assets/hotel.png"),
+                },
+              ],
             },
             {
-              center: [{}, {}],
+              center: [
+                {
+                  text: "海外酒店",
+                },
+                {
+                  text: "特价酒店",
+                },
+              ],
             },
             {
-              center: [{}, {}],
+              center: [
+                {
+                  text: "海外酒店",
+                },
+                {
+                  text: "特价酒店",
+                },
+              ],
             },
           ],
         },
       ],
+      subnav_entry: [
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+        { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+      ],
     };
   },
-  mounted() {
-    // this.style = {
-    //           background: 'url(' + this.img + ')',
-    //           backgroundRepeat: 'no-repeat 0 0',
-    //           backgroundSize: 32px+ auto',
-    //         }
-  },
+  mounted() {},
 };
 </script>
 
