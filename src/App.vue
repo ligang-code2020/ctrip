@@ -70,7 +70,19 @@
       </li>
     </ul>
     <!-- 销售模块 -->
-    <div class="sales-box">111</div>
+    <div class="sales-box">
+      <div class="sales-hd">
+        <h2>热门活动</h2>
+        <a href="#" class="more">获取更多福利</a>
+      </div>
+      <div class="sales-bd">
+        <div class="row" v-for="(item, index) in row" :key="index">
+          <a href="#" v-for="(item, index) in item.a" :key="index">
+            <img :src="item.img" alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -211,6 +223,38 @@ export default {
         { name: "电话费", img: require("../src/assets/subnav-bg.png") },
         { name: "电话费", img: require("../src/assets/subnav-bg.png") },
         { name: "电话费", img: require("../src/assets/subnav-bg.png") },
+      ],
+      row: [
+        {
+          a: [
+            {
+              img: require("../src/upload/pic1.jpg"),
+            },
+            {
+              img: require("../src/upload/pic2.jpg"),
+            },
+          ],
+        },
+        {
+          a: [
+            {
+              img: require("../src/upload/pic3.jpg"),
+            },
+            {
+              img: require("../src/upload/pic4.jpg"),
+            },
+          ],
+        },
+        {
+          a: [
+            {
+              img: require("../src/upload/pic5.jpg"),
+            },
+            {
+              img: require("../src/upload/pic6.jpg"),
+            },
+          ],
+        },
       ],
     };
   },
